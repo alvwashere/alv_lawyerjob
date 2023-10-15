@@ -1,0 +1,8 @@
+{
+    "input_header": "Request Lawyer",
+    "input_name": "Enter your name",
+    "input_name_desc": "Please include your first and last name.",
+    "input_self": "Are you calling a lawyer for yourself?",
+    "input_nameof": "Name of person in need of lawyer.",
+    "input_nameof_desc": "If the lawyer is for you, you can leave this blank."
+}
