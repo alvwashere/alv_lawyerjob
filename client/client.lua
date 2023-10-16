@@ -6,23 +6,23 @@ RegisterNetEvent('alv_lawyer:requestLawyer', function()
         {type='input', label=locale('input_name'), description=locale('input_name_desc'), required=true},
         {type='checkbox', label=locale('input_self')},
         {type='input', label=locale('input_nameof'), description=locale('input_nameof_desc')},
-        {type='input', label='Enter reason for lawyer', description='Please provide a brief description of why you need an attorney', required = true},
-        {type='number', label='Please enter your phone number', description='We will need your number to contact you.', required=true}
+        {type='input', label=locale('input_reason'), description=locale('input_reason_desc'), required = true},
+        {type='number', label=locale('input_num'), description=locale('input_num_desc'), required=true}
     })
 
     if input then
-        if input[1] then Data[#Data+1] = {label='Requester Name', description=input[1]} end
-        if input[2] ~= nil then if input[2] then local forSelf = 'Yes' Data[#Data+1] = {label='For themself', description=forSelf} else local forSelf = 'No' Data[#Data+1] = {label='For themself', description=forSelf} end end
-        if input[3] ~= nil then if input[3] == '' then local forName = 'N/A' Data[#Data+1] = {label='For: ', description=forName} else local forName = input[3] Data[#Data+1] = {label='For: ', description=forName} end end
-        if input[4] then Data[#Data+1] = {label='Reason', description=input[4]} end
-        if input[5] then Data[#Data+1] = {label='Phone Number', description=input[5]} end
-        Data[#Data+1] = {label='Close Request', description='This action cannot be undone.'}
+        if input[1] then Data[#Data+1] = {label=locale('req_name'), description=input[1]} end
+        if input[2] ~= nil then if input[2] then local forSelf = locale('yes') Data[#Data+1] = {label='For themself', description=forSelf} else local forSelf = locale('no') Data[#Data+1] = {label=locale('for_self'), description=forSelf, args={id='name'}} end end
+        if input[3] ~= nil then if input[3] == '' then local forName = locale('n/a') Data[#Data+1] = {label=locale('for'), description=forName} else local forName = input[3] Data[#Data+1] = {label=locale('for'), description=forName, args={id='nameof'}} end end
+        if input[4] then Data[#Data+1] = {label=locale('reason'), description=input[4], args={id='reason'}} end
+        if input[5] then Data[#Data+1] = {label=locale('phone_number'), description=input[5], args={id='num'}} end
+        Data[#Data+1] = {label=locale('close_request'), description=locale('close_desc'), args={id='close'}}
     end
 
     DebugPrint(json.encode(Requests, {indent=true}))
 
     lib.callback('alv_lawyer:sendRequest', cache.serverId, function(success)
-        if success then Config.Notify('You have sent a request for a lawyer.') end
+        if success then Config.Notify(locale('lawyer_requested')) end
     end, Data)
 end)
 
@@ -47,7 +47,7 @@ RegisterCommand(Config.JobCommand, function()
 
         lib.registerMenu({
             id='lawyer_menu', 
-            title='Lawyer Menu',
+            title=locale('lawyer_menu'),
             position='bottom-right',
             options=Data
         }, function(selected, scroll, args)
