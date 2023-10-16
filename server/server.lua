@@ -2,7 +2,7 @@ Requests = {}
 
 lib.callback.register('alv_lawyer:sendRequest', function(source, data)
     Data = data
-    Data[#Data+1] = {label='Request ID', description=#Requests+1, args={id=#Requests+1}}
+    Data[#Data+1] = {label=locale('request_id'), description=#Requests+1, args={id=#Requests+1}}
     Requests[#Requests+1] = data
     return true
 end)
