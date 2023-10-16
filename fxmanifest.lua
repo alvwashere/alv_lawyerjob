@@ -4,7 +4,6 @@ lua54 'yes'
 
 shared_scripts {
     '@ox_lib/init.lua',
-    '@es_extended/imports.lua',
     'config.lua'
 }
 
@@ -13,5 +12,7 @@ client_scripts {
 }
 
 server_scripts {
+    '@oxmysql/lib/MySQL.lua',
+    'discord.lua',
     'server/*.lua'
 }
