@@ -4,5 +4,22 @@
     "input_name_desc": "Please include your first and last name.",
     "input_self": "Are you calling a lawyer for yourself?",
     "input_nameof": "Name of person in need of lawyer.",
-    "input_nameof_desc": "If the lawyer is for you, you can leave this blank."
+    "input_nameof_desc": "If the lawyer is for you, you can leave this blank.",
+    "input_reason": "Enter reason for lawyer",
+    "input_reason_desc": "Please provide a brief description of why you need an attorney",
+    "input_num": "Please enter your phone number",
+    "input_num_desc": "We will need your number to contact you.",
+    "req_name": "Requester Name",
+    "for_self": "For themself",
+    "yes": "Yes",
+    "no": "No",
+    "n/a": "N/A",
+    "for": "For: ",
+    "reason": "Reason",
+    "phone_number": "Phone Number",
+    "close_request": "Close Request",
+    "close_desc": "This action cannot be undone.",
+    "lawyer_requested": "You have sent a request for a lawyer.",
+    "lawyer_menu": "Lawyer Menu",
+    "request_id": "Request ID"
 }
