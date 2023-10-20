@@ -9,6 +9,8 @@ CreateThread(function()
       local import = LoadResourceFile('ox_core', file)
       local chunk = assert(load(import, ('@@ox_core/%s'):format(file)))
       chunk()
+        elseif GetResourceState('ND_Core') ~= 'missing' then
+        NDCore = exports["ND_Core"]:GetCoreObject()
     end
   end
 end)
