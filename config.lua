@@ -13,7 +13,11 @@ function Config.Notify(message)
     if GetResourceState('es_extended') == 'started' then
         ESX.ShowNotification(message)
     else
-        -- add your own notification function if you want... replace the above code to stop it using ESX notifications if you do.
+    lib.notify({
+        title = 'Lawyer Job',
+        description = message',
+        type = 'info'
+    })
     end
 end
 
